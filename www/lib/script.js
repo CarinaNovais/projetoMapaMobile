@@ -9,17 +9,11 @@ function mapa(lat,long){
           layers: L.mapquest.tileLayer('map'),
           zoom: 12
         });
-        
         map.addControl(L.mapquest.control());
-    };
 }
 
   document.querySelector("#local").addEventListener("click", function(){
 
-    // onSuccess Callback
-    // This method accepts a Position object, which contains the
-    // current GPS coordinates
-    //
     var onSuccess = function(position) {
         mapa(position.coords.latitude, position.coords.longitude);
     };
@@ -33,5 +27,4 @@ function mapa(lat,long){
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   });
-
-  
+}
